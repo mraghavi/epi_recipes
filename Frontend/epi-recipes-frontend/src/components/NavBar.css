@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Suisse+Intl:wght@100;400;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* NavBar Styling */
+.top-nav {
+  background-color: var(--white); /* White background for the nav */
+  padding: 20px 20px; /* Increased padding to make the nav bar taller */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid var(--black); /* Red border at the bottom */
+  z-index: 1000;
+}
+
+.logo img {
+  height: 60px; /* Adjusted height for better alignment with the taller nav bar */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding-left: 20px;
+  margin-right: 30px;
+}
+
+.nav-links li {
+  font-size: 20px; /* Increased font size for better visibility */
+  font-weight: bold;
+  line-height: 60px; /* Aligns text vertically with the nav bar height */
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--black); /* Black color for the links */
+  font-family: 'Playfair Display', serif;
+}
+
+.nav-links li a:hover {
+  color: var(--red); /* Red on hover */
+}
+
+/* Optional styling for the rest of the app */
+body {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--red);
+  font-family: 'Suisse Intl', sans-serif;
+}
+
+button {
+  background-color: var(--coral);
+  color: var(--cream);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-family: 'Suisse Intl', sans-serif;
+}
+
+button:hover {
+  background-color: var(--green);
+}

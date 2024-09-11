@@ -1,0 +1,119 @@
+/* General styling */
+.home {
+    font-family: 'Playfair Display', serif;
+    color: var(--black);
+    text-align: center;
+  }
+  
+  .hero-section {
+    background-image: url('https://assets.epicurious.com/photos/5629485d53fd67ed3b1f2930/16:9/w_1280,c_limit/EP_10072015_vegducken_process.jpg?mbid=social_retweet');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    padding: 100px 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .hero-section h1 {
+    font-size: 5em;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .hero-section p {
+    font-size: 2.5em;
+    font-style: italic;
+  }
+  
+  .sections, .additional-sections {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    background-color: var(--white);
+  }
+  
+  .section-item {
+    background-size: cover;
+    background-position: center;
+    border: 1px solid var(--black);
+    border-radius: 12px;
+    padding: 40px;
+    margin: 20px;
+    width: 30%;
+    min-height: 400px;
+    color: var(--white);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .section-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .section-item h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: var(--white);
+    font-weight: bold;
+  }
+  
+  .section-item p {
+    font-size: 1.5em;
+    margin-bottom: 25px;
+  }
+  
+  .section-link {
+    font-size: 1.5em;
+    color: var(--white);
+    background-color: var(--black);
+    text-decoration: none;
+    border: 2px solid var(--black);
+    border-radius: 5px;
+    padding: 15px 25px;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .section-link:hover {
+    background-color: var(--white);
+    color: var(--black);
+  }
+  
+  :root {
+    --black: #000000;
+    --white: #FFFFFF;
+  }
+  
+  /* Top Picks Section */
+  .top-picks {
+    background-image: url('https://www.eatwell101.com/wp-content/uploads/2019/07/ok-Creamy-Garlic-Butter-Chicken-with-Spinach-and-Bacon-5-1460x1825.jpg');
+  }
+  
+  /* Desserts Section */
+  .desserts {
+    background-image: url('https://ahundredaffections.com/wp-content/uploads/2020/06/Cannoli-Dip_EXPS_THJJ18_212128_D01_31_4b-1.jpg');
+  }
+  
+  /* Vegetarian Section */
+  .vegetarian {
+    background-image: url('https://thegreenloot.com/wp-content/uploads/2017/11/vegan-clean-eating-recipes-weight-loss-winter-dinner-12.jpg');
+  }
+  
+  /* Salads Section */
+  .salads {
+    background-image: url('https://www.tasteofhome.com/wp-content/uploads/2018/01/Simple-Italian-Salad_EXPS_FT20_25957_F_0624_1.jpg');
+  }
+  
+  /* Soups Section */
+  .soups {
+    background-image: url('https://www.uncover-romania.com/wp-content/uploads/2018/02/pexels-photo-539451-1.jpeg');
+  }
+  
+  /* Sauces Section */
+  .sauces {
+    background-image: url('https://www.tastingtable.com/img/gallery/the-biggest-mistake-youre-probably-making-with-marinara-sauce/l-intro-1665682761.jpg');
+  }
+  

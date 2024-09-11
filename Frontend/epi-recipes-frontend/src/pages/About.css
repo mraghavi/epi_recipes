@@ -1,0 +1,68 @@
+/* About Us Page Styles */
+
+.about-us-container {
+    padding: 20px;
+    background-color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .about-us-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .about-us-header h1 {
+    font-family: 'Playfair Display', serif;
+    color: #FF6347; /* Tomato color */
+    font-size: 3rem;
+  }
+  
+  .about-us-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .about-us-text {
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  .about-us-text p {
+    margin: 15px 0;
+    color: #333;
+    font-size: 1.1rem;
+  }
+  
+  .about-us-text a {
+    color: #FF6347; /* Tomato color */
+    text-decoration: none;
+  }
+  
+  .about-us-text a:hover {
+    text-decoration: underline;
+  }
+  
+  .about-us-image {
+    margin-top: 20px;
+  }
+  
+  .about-us-image img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .about-us-content {
+      padding: 10px;
+    }
+  }
+  

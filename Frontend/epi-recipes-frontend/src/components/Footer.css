@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background: #FFE8C5; /* Adjusted color to fit EpiRecipes */
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+.space {
+  margin-top: 10px;
+}
+@media screen and (max-width: 767px) {
+  footer { 
+    display: flex;
+    flex-direction: column;
+  }
+}
