@@ -14,29 +14,35 @@ Download the official OpenSearch Docker images or sample Docker Compose files fr
 Set a custom admin password. This is required starting with OpenSearch 2.12:
 
 For Linux/macOS:
+```
 export OPENSEARCH_INITIAL_ADMIN_PASSWORD=<your-password>
-
+```
 For Windows Command Prompt:
+```
 set OPENSEARCH_INITIAL_ADMIN_PASSWORD=<your-password>
-
+```
 Alternatively, create an .env file in the same directory as your docker-compose.yml file and define the password:
+```
 OPENSEARCH_INITIAL_ADMIN_PASSWORD=<your-password>
-
+```
 Create a docker-compose.yml file to set up two OpenSearch nodes and one OpenSearch Dashboards node with Security Plugin disabled.
 From the directory containing docker-compose.yml, run:
+```
 docker-compose up -d
-
+```
 Verify that the service containers are running correctly:
+```
 docker-compose ps
-
+```
 Check if OpenSearch and OpenSearch Dashboards are accessible:
 OpenSearch: http://localhost:9200
 Dashboards: http://localhost:5601
 
 Check Cluster Health:
 You can check the health of your OpenSearch cluster by running:
+```
 curl -X GET "http://localhost:9200/_cluster/health?pretty"
-
+```
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Step 2: Creating and Managing OpenSearch Indices**
@@ -44,6 +50,7 @@ curl -X GET "http://localhost:9200/_cluster/health?pretty"
 Once your OpenSearch cluster is running, you can create indices for your dataset.
 Download the EpiRecipes dataset from Kaggle and convert it to JSON format. You can limit the number of recipes (e.g., first 100 recipes) for initial testing.
 Define the index for your data. The following example sets up an index with mappings for various recipe properties:
+```
 PUT /epi_recipes
 {
   "mappings": {
@@ -68,13 +75,15 @@ PUT /epi_recipes
     }
   }
 }
-
+```
 You can also use the curl command to check the index mappings:
+```
 curl -X GET "http://localhost:9200/epi_recipes/_mapping?pretty"
-
+```
 Search the index:
+```
 curl -X GET "http://localhost:9200/epi_recipes/_search?pretty"
-
+```
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Step 3: Ingesting the Dataset into OpenSearch**
@@ -88,37 +97,45 @@ pip install opensearch-py
 Use a Python script to generate a bulk indexing JSON file (e.g., epi_r_bulk.json):
 
 Use the curl command to index the data:
-curl -X POST "http://localhost:9200/_bulk" -H "Content-Type: application/json" --data-binary @D:/EpiRecipes/epi_r_bulk.json
-
+```
+curl -X POST "http://localhost:9200/_bulk" -H "Content-Type: application/json" --data-binary @path:/to/epi_r_bulk.json
+```
 **3.3 Verifying Data Upload**
 After uploading the data, verify it using the OpenSearch Dashboard or via curl:
+```
 curl -X GET "http://localhost:9200/epi_recipes/_search?pretty"
-
+```
 **3.4 Example Queries:**
 Retrieve recipes with a rating greater than 4:
+```
 curl -X GET "http://localhost:9200/epi_recipes/_search?pretty" -H "Content-Type: application/json" -d '{"query": {"range": {"rating": {"gt": 4}}}}'
-
+```
 Search for vegetarian recipes:
+```
 curl -X GET "http://localhost:9200/epi_recipes/_search?pretty" -H "Content-Type: application/json" -d "{\"query\": {\"term\": {\"tags.vegetarian\": true}}}"
-
+```
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ***Step 4: Backend Development with Django**
 
 **4.1 Set Up a Django Project**
 Install Django:
+```
 pip install django
-
+```
 Create a new Django project:
+```
 django-admin startproject epirecipes_backend
-
+```
 Create a new app within the project:
+```
 python manage.py startapp recipes
-
+```
 Migrate the database and run the server:
+```
 python manage.py migrate
 python manage.py runserver
-
+```
 **4.2 Creating API Endpoints**
 Set up the necessary Django views, serializers, and URLs for handling search queries:
 Endpoint: /api/search/
@@ -126,30 +143,36 @@ Method: GET
 Query Parameters: q for title search, rating_min, rating_max etc.,
 
 Test the endpoint using curl or Postman:
+```
 curl "http://127.0.0.1:8000/api/search/?q=pasta&page=1&size=10"
-
+```
 **4.3 Allow CORS**
 
 To allow cross-origin requests from the React frontend, install and configure django-cors-headers:
+```
 pip install django-cors-headers
-
+```
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Step 5: Frontend Development with React**
 
 **5.1 Set Up a React Project**
 Use Vite to create the React app:
+```
 npm create vite@latest
 cd <your-project>
 npm install
 npm run dev
-
+```
 **5.2 Additional Libraries**
 Install necessary libraries for icons, routing, and HTTP requests:
+```
 npm install axios react-router-dom
 npm install @fortawesome/react-fontawesome @fortawesome/free-brands-svg-icons
 npm install react-icons --save
-
+```
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------***Video Link***
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZdCSf1fG4tU?si=JhYa7PVhC4wYFnqA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **Conclusion**
